@@ -12,8 +12,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-@RestController
-@RequestMapping("/pesquisa")
 @Service
 public class Pesquisa {
     private ServicoImigrante s;
@@ -26,13 +24,11 @@ public class Pesquisa {
          pesquisa = s.findAll();
     }
     
-    @GetMapping("/limpa")
     public void limpaLista(){
         pesquisa.clear();
     }
 
-    @GetMapping("/area")
-    public List buscaArea(@RequestBody String Area){
+    public List buscaArea(String Area){
 
         for (ModeloImigrante i : pesquisa) {
             if(i.getAreaAtuacao().equals(Area))
@@ -42,8 +38,7 @@ public class Pesquisa {
         return  todos;
     }
     
-    // @GetMapping("/especializacao")
-    // public List buscaEspecializacao(@RequestBody String especializacao){
+    // public List buscaEspecializacao(String especializacao){
     //     for (ModeloImigrante i : pesquisa) {
     //         if(i.getEspecializacao().equals(especializacao))
     //             todos.add(i);
@@ -51,8 +46,7 @@ public class Pesquisa {
     //     return  todos;
     // }
 
-    @GetMapping("/email")
-    public ModeloImigrante buscaEmail(@RequestBody String email){
+    public ModeloImigrante buscaEmail(String email){
         for (ModeloImigrante i : pesquisa) {
             if(i.getEmail().equals(email))
                 return i;
