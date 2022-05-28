@@ -39,17 +39,16 @@ public class Pesquisa {
         
         return  todos;
     }
-    /*
+    
     @GetMapping("/especializacao")
-    public List buscaEspecializacao(String especializacao, List<ModeloImigrante> todos){
-        erro
-        for (ModeloImigrante i : todos) {
-            if(i.get().equals(especializacao))
-                pesquisa.add(i);
+    public List buscaEspecializacao(@RequestBody String especializacao){
+        for (ModeloImigrante i : pesquisa) {
+            if(i.getEspecializacao().equals(especializacao))
+                todos.add(i);
         }
-        return  pesquisa;
+        return  todos;
     }
-    */
+    
 
 
 }
