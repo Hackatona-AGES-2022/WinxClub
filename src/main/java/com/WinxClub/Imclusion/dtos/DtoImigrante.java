@@ -1,9 +1,5 @@
 package com.WinxClub.Imclusion.dtos;
 
-import java.io.File;
-import java.util.Set;
-
-import javax.imageio.ImageIO;
 import javax.validation.constraints.NotBlank;
 
 import org.springframework.web.multipart.MultipartFile;

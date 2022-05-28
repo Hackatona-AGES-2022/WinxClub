@@ -2,8 +2,7 @@ package com.WinxClub.Imclusion.models;
 
 import javax.persistence.*;
 
-import java.io.File;
-import java.util.UUID;
+// import java.io.File;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -14,8 +13,8 @@ import javax.persistence.Table;
 public class ModeloImigrante {
     
      @Id
-     @GeneratedValue(strategy = GenerationType.AUTO)
-     private UUID id;
+     @GeneratedValue(strategy = GenerationType.IDENTITY)
+     private int id;
      @Column(nullable = false)
      private String nome;
      @Column(nullable = false)
@@ -37,11 +36,11 @@ public class ModeloImigrante {
      @Column(nullable = true)
      private String historia;
 
-     public UUID getId() {
+     public int getId() {
           return id;
      }
 
-     public void setId(UUID id) {
+     public void setId(int id) {
           this.id = id;
      }
 

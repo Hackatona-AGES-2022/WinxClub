@@ -19,7 +19,7 @@ public class Perfil {
 
     public boolean logar(String email){
         Pesquisa p = new Pesquisa(s);
-        i = p.buscaEmail(email);
+        // i = p.buscaEmail(email);
         if(i==null){return false;}
         return true;     
     }

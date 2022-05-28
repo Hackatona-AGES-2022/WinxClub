@@ -1,12 +1,8 @@
 package com.WinxClub.Imclusion.negocio;
 
-import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Random;
 
 import com.WinxClub.Imclusion.models.ModeloImigrante;
-import com.WinxClub.Imclusion.repositories.IRepositorioImigrante;
 import com.WinxClub.Imclusion.services.ServicoImigrante;
 
 import org.springframework.web.bind.annotation.GetMapping;

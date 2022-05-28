@@ -1,14 +1,12 @@
 package com.WinxClub.Imclusion.controllers;
 
 import org.springframework.beans.BeanUtils;
-import org.springframework.boot.web.servlet.ServletComponentScan;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
-import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
-import ch.qos.logback.core.net.SyslogOutputStream;
+import java.io.FileInputStream;
 
 import javax.validation.Valid;
 
@@ -38,13 +36,14 @@ public class ControladorImigrante {
     }
 
     @PostMapping("/file")
-    public ResponseEntity<Object> uploadFile(@RequestBody MultipartFile file){
-        int id = servicoArquivo.escreveImg(file);
-        return ResponseEntity.ok().body(id);
+    public ResponseEntity<Object> uploadFile(@RequestBody MultipartFile file, @RequestParam int id){
+        int idd = servicoArquivo.escreveImg(file, id);
+        return ResponseEntity.ok().body(idd);
     }
 
-    @GetMapping
-    public ResponseEntity<Object> getImigrante(@PathVariable String id){
-        return null;
+    @GetMapping("/file/{id}")
+    public ResponseEntity<FileInputStream> getImigrante(@PathVariable int id){
+        FileInputStream img = servicoArquivo.leImagem(id);
+        return ResponseEntity.ok().header("Content-type", "image/png").body(img);
     }
 }
