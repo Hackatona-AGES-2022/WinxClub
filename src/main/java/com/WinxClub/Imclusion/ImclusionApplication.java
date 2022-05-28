@@ -11,9 +11,4 @@ public class ImclusionApplication {
 		SpringApplication.run(ImclusionApplication.class, args);
 	}
 
-	// @GetMapping("/cadastro")
-	// public String cadastro(){
-	// 	return ""
-	// }
-
 }

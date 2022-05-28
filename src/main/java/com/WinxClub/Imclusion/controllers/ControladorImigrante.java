@@ -30,13 +30,6 @@ public class ControladorImigrante {
         this.servicoArquivo = servicoArquivo;
     }
 
-    @PostMapping("/file")
-    public ResponseEntity<Object> uploadFile(@RequestBody() MultipartFile file){
-        int id = servicoArquivo.escreveImg(file);
-
-        return ResponseEntity.ok().body(id);
-    }
-
     @PostMapping
     public ResponseEntity<Object> saveImigrante(@RequestBody @Valid DtoImigrante dtoImigrante){
         var modeloImigrante = new ModeloImigrante();
@@ -44,9 +37,14 @@ public class ControladorImigrante {
         return ResponseEntity.status(HttpStatus.CREATED).body(servicoImigrante.save(modeloImigrante));
     }
 
+    @PostMapping("/file")
+    public ResponseEntity<Object> uploadFile(@RequestBody MultipartFile file){
+        int id = servicoArquivo.escreveImg(file);
+        return ResponseEntity.ok().body(id);
+    }
+
     @GetMapping
     public ResponseEntity<Object> getImigrante(@PathVariable String id){
-
         return null;
     }
 }
