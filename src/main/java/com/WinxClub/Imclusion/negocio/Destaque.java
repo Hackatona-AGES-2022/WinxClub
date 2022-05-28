@@ -9,9 +9,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-
-@RestController
-@RequestMapping("/destaque")
 public class Destaque {
     private ServicoImigrante s;
     List<ModeloImigrante> destaques;
@@ -36,7 +33,6 @@ public class Destaque {
         return l;
     }
 
-    @GetMapping("/lista")
     public List<ModeloImigrante> getDestaques(){
         return atualizaDestaques(destaques);
         
