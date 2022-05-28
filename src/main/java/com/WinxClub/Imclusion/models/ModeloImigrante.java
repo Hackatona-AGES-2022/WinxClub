@@ -1,6 +1,8 @@
 package com.WinxClub.Imclusion.models;
 
 import javax.persistence.*;
+
+import java.io.File;
 import java.util.UUID;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -22,15 +24,17 @@ public class ModeloImigrante {
      private String pais;
      @Column(nullable = false)
      private String area_atuacao;
+     @Column(nullable = true)
+     private String especializacao;
      @Column(nullable = false)
      private String endereco;
      @Column(nullable = false, unique = true)
      private String telefone;
      @Column(nullable = false, unique = true)
      private String email;
-     @Column(nullable = false)
+     @Column(nullable = true)
      private String bio;
-     @Column(nullable = false)
+     @Column(nullable = true)
      private String historia;
 
      public UUID getId() {
@@ -63,6 +67,14 @@ public class ModeloImigrante {
 
      public void setArea_atuacao(String area_atuacao) {
           this.area_atuacao = area_atuacao;
+     }
+
+     public String getEspecializacao(){
+          return especializacao;
+     }
+
+     public void setEspecializacao(String especializacao) {
+          this.especializacao = especializacao;
      }
 
      public String getPais() {

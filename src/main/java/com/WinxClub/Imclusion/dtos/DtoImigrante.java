@@ -1,6 +1,12 @@
 package com.WinxClub.Imclusion.dtos;
 
+import java.io.File;
+import java.util.Set;
+
+import javax.imageio.ImageIO;
 import javax.validation.constraints.NotBlank;
+
+import org.springframework.web.multipart.MultipartFile;
 
 public class DtoImigrante {
 
@@ -18,10 +24,28 @@ public class DtoImigrante {
      private String telefone;
      @NotBlank 
      private String email;
-     @NotBlank
+     // @NotBlank
      private String bio;
-     @NotBlank
+     // @NotBlank
      private String historia;
+     private String especializacao;
+     private MultipartFile imagem;
+
+     public void setImagem(MultipartFile imagem) {
+          this.imagem = imagem;
+     }
+
+     public MultipartFile getImagem() {
+          return imagem;
+     }
+
+     public void setEspecializacao(String especializacao) {
+          this.especializacao = especializacao;
+     }
+
+     public String getEspecializacao() {
+          return especializacao;
+     }
 
      public void setNome(String nome) {
           this.nome = nome;
