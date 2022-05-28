@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/destaque")
 public class Destaque {
-    final ServicoImigrante s;
+    private ServicoImigrante s;
     List<ModeloImigrante> destaques;
     
 

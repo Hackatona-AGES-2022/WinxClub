@@ -6,6 +6,7 @@ import java.util.List;
 import com.WinxClub.Imclusion.models.ModeloImigrante;
 import com.WinxClub.Imclusion.services.ServicoImigrante;
 
+import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,15 +14,16 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/pesquisa")
+@Service
 public class Pesquisa {
-    final ServicoImigrante s;
+    private ServicoImigrante s;
     List<ModeloImigrante> pesquisa;
     List<ModeloImigrante> todos;
     
 
     public Pesquisa(ServicoImigrante s) {
         this.s = s;
-        List<ModeloImigrante> pesquisa = s.findAll();
+         pesquisa = s.findAll();
     }
     
     @GetMapping("/limpa")
@@ -40,14 +42,14 @@ public class Pesquisa {
         return  todos;
     }
     
-    @GetMapping("/especializacao")
-    public List buscaEspecializacao(@RequestBody String especializacao){
-        for (ModeloImigrante i : pesquisa) {
-            if(i.getEspecializacao().equals(especializacao))
-                todos.add(i);
-        }
-        return  todos;
-    }
+    // @GetMapping("/especializacao")
+    // public List buscaEspecializacao(@RequestBody String especializacao){
+    //     for (ModeloImigrante i : pesquisa) {
+    //         if(i.getEspecializacao().equals(especializacao))
+    //             todos.add(i);
+    //     }
+    //     return  todos;
+    // }
 
     @GetMapping("/email")
     public ModeloImigrante buscaEmail(@RequestBody String email){

@@ -5,12 +5,14 @@ import java.util.List;
 import com.WinxClub.Imclusion.models.ModeloImigrante;
 import com.WinxClub.Imclusion.services.ServicoImigrante;
 
+import org.springframework.stereotype.Service;
 
 
+@Service
 public class Perfil {
     private ModeloImigrante i;
     private ModeloImigrante novo;
-    final ServicoImigrante s;
+    private ServicoImigrante s;
     
 
     public Perfil(ServicoImigrante s) {

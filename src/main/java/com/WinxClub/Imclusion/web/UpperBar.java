@@ -9,6 +9,7 @@ import com.WinxClub.Imclusion.negocio.Pesquisa;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -17,13 +18,17 @@ public class UpperBar {
     private Pesquisa p;
     private Perfil perf;
     
-    @GetMapping("pesquisa")
-    public List<ModeloImigrante> pesquisa(@RequestBody String pesquisa, @RequestBody boolean tipo){
-        if(tipo) {//true = area
-            return p.buscaArea(pesquisa);
-        }else{
-            return p.buscaEspecializacao(pesquisa);
-        }
+    
+    public UpperBar(Pesquisa p, Perfil perf) {
+        this.p = p;
+        this.perf = perf;
+    }
+
+    @GetMapping("/pesquisa")
+    public List<ModeloImigrante> pesquisa(@RequestParam("pesquisa") String pesquisa){
+       return p.buscaArea(pesquisa);
+       // return p.buscaEspecializacao(pesquisa);
+        
     }
 
     @GetMapping("/sair")

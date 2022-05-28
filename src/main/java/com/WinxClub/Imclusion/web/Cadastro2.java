@@ -1,17 +1,17 @@
-package com.WinxClub.Imclusion.web;
+// package com.WinxClub.Imclusion.web;
 
-import com.WinxClub.Imclusion.negocio.Perfil;
+// import com.WinxClub.Imclusion.negocio.Perfil;
 
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
+// import org.springframework.web.bind.annotation.PostMapping;
+// import org.springframework.web.bind.annotation.RequestBody;
 
-public class Cadastro2 {
+// public class Cadastro2 {
 
-    private Perfil p;
+//     private Perfil p;
 
-    @PostMapping("/cadastro2")
-    public void cadastro(@RequestBody String bio,@RequestBody  String historia){
-        p.setIBio(bio);
-        p.setIH(historia);
-    }
-}
+//     @PostMapping("/cadastro2")
+//     public void cadastro(@RequestBody String bio,@RequestBody  String historia){
+//         p.setIBio(bio);
+//         p.setIH(historia);
+//     }
+// }

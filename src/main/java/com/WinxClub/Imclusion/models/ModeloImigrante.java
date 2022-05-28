@@ -13,14 +13,8 @@ import javax.persistence.Table;
 public class ModeloImigrante {
     
      @Id
-<<<<<<< HEAD
      @GeneratedValue(strategy = GenerationType.IDENTITY)
      private int id;
-=======
-     @GeneratedValue(strategy = GenerationType.AUTO)
-     private UUID id;
-
->>>>>>> back2
      @Column(nullable = false)
      private String nome;
      
