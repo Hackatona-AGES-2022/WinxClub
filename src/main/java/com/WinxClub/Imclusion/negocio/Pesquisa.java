@@ -3,63 +3,54 @@ package com.WinxClub.Imclusion.negocio;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.WinxClub.Imclusion.models.ModeloImigrante;
+import com.WinxClub.Imclusion.services.ServicoImigrante;
+
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/pesquisa")
 public class Pesquisa {
+    final ServicoImigrante s;
+    List<ModeloImigrante> pesquisa;
+    List<ModeloImigrante> todos;
     
-    List<Imigrante> imigrantes = new ArrayList<>();
 
+    public Pesquisa(ServicoImigrante s) {
+        this.s = s;
+        List<ModeloImigrante> pesquisa = s.findAll();
+    }
+    
     @GetMapping("/limpa")
     public void limpaLista(){
-        imigrantes.clear();
+        pesquisa.clear();
     }
 
     @GetMapping("/area")
-    public List buscaArea(String Area, List<Imigrante> todos){
+    public List buscaArea(@RequestBody String Area){
 
-        for (Imigrante i : todos) {
+        for (ModeloImigrante i : pesquisa) {
             if(i.getAreaAtuacao().equals(Area))
-                imigrantes.add(i);
+                todos.add(i);
         }
         
-        return imigrantes;
+        return  todos;
     }
-    
-    @GetMapping("/especializacao")
-    public List buscaEspecializacao(String especializacao, List<Imigrante> todos){
-
-        for (Imigrante i : todos) {
-            if(i.getEspecializacao().equals(especializacao))
-                imigrantes.add(i);
-        }
-        return  imigrantes;
-    }
-    
     /*
-    //cidade
-    public List buscaCidade(String cidade, List<Imigrante> todos){
-
-        for (Imigrante i : todos) {
-            if(i.getCidadeDomicilio().equals(cidade))
-                imigrantes.add(i);
+    @GetMapping("/especializacao")
+    public List buscaEspecializacao(String especializacao, List<ModeloImigrante> todos){
+        erro
+        for (ModeloImigrante i : todos) {
+            if(i.get().equals(especializacao))
+                pesquisa.add(i);
         }
-        return  imigrantes;
-    }
-
-    //uf
-    public List buscaUf(String uf, List<Imigrante> todos){
-
-        for (Imigrante i : todos) {
-            if(i.getUf().equals(uf))
-                imigrantes.add(i);
-        }
-        return  imigrantes;
+        return  pesquisa;
     }
     */
+
 
 }
 
