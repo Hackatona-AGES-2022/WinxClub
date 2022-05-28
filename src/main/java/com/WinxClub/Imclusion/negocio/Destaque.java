@@ -23,7 +23,7 @@ public class Destaque {
     }
 
 
-    public List atualizaDestaques(List<ModeloImigrante> destaques){
+    private List atualizaDestaques(List<ModeloImigrante> destaques){
         int lim = destaques.size();
         List<ModeloImigrante> l;
         if(lim-5>=0){

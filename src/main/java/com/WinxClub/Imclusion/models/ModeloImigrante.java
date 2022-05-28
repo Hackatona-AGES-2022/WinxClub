@@ -13,26 +13,41 @@ import javax.persistence.Table;
 public class ModeloImigrante {
     
      @Id
+<<<<<<< HEAD
      @GeneratedValue(strategy = GenerationType.IDENTITY)
      private int id;
+=======
+     @GeneratedValue(strategy = GenerationType.AUTO)
+     private UUID id;
+
+>>>>>>> back2
      @Column(nullable = false)
      private String nome;
+     
      @Column(nullable = false)
      private String data_nascimento;
+     
      @Column(nullable = false)
      private String pais;
+     
      @Column(nullable = false)
      private String area_atuacao;
+     
      @Column(nullable = true)
      private String especializacao;
+     
      @Column(nullable = false)
      private String endereco;
+     
      @Column(nullable = false, unique = true)
      private String telefone;
+     
      @Column(nullable = false, unique = true)
      private String email;
+     
      @Column(nullable = true)
      private String bio;
+     
      @Column(nullable = true)
      private String historia;
 
