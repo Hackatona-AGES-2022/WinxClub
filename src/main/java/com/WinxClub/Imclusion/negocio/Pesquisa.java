@@ -48,34 +48,17 @@ public class Pesquisa {
         }
         return  todos;
     }
+
+    @GetMapping("/email")
+    public ModeloImigrante buscaEmail(@RequestBody String email){
+        for (ModeloImigrante i : pesquisa) {
+            if(i.getEmail().equals(email))
+                return i;
+        }
+        return  null;
+    }
     
 
 
 }
 
-/*
-public class Pesquisa {
-    
-    List<Imigrante> imigrantes = new ArrayList<>();
-
-    public List<Imigrante> buscaArea(String Area, List<Imigrante> todos){
-        imigrantes.clear();
-
-        for (Imigrante i : todos) {
-            if(i.getAreaAtuacao().equals(Area))
-                imigrantes.add(i);
-        }
-        
-        return imigrantes;
-    }
-    
-    public List<Imigrante> buscaEspecializacao(String especializacao, List<Imigrante> todos){
-        imigrantes.clear();
-
-        for (Imigrante i : todos) {
-            if(i.getEspecializacao().equals(especializacao))
-                imigrantes.add(i);
-        }
-        return  imigrantes;
-    }
-}*/

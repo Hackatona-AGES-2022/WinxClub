@@ -24,7 +24,7 @@ public class Perfil {
         return true;     
     }
 
-    public void criar(String nome, String data_nasc, String pais, String area, String especializacao, String endereco ,String email, String telefone, String bio, String historia){
+    public ModeloImigrante criar(String nome, String data_nasc, String pais, String area, String especializacao, String endereco ,String email, String telefone, String bio, String historia){
         novo.setArea_atuacao(area);
         novo.setBio(bio);
         novo.setData_nascimento(data_nasc);
@@ -35,14 +35,28 @@ public class Perfil {
         novo.setNome(nome);
         novo.setPais(pais);
         novo.setTelefone(telefone);
+        i=novo;
         s.save(novo);
-        
+
         logar(email);
 
+        return i;
     }
 
     public void deslogar(){
         i =null;
     }
-    
+
+    public ModeloImigrante getPessoa(){
+        return i;
+    }
+
+    public void setIBio(String b){
+        i.setBio(b);
+    }
+
+    public void setIH(String h){
+        i.setHistoria(h);
+    }
+
 }

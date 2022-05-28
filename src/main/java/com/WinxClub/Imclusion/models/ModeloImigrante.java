@@ -16,24 +16,34 @@ public class ModeloImigrante {
      @Id
      @GeneratedValue(strategy = GenerationType.AUTO)
      private UUID id;
+
      @Column(nullable = false)
      private String nome;
+     
      @Column(nullable = false)
      private String data_nascimento;
+     
      @Column(nullable = false)
      private String pais;
+     
      @Column(nullable = false)
      private String area_atuacao;
+     
      @Column(nullable = true)
      private String especializacao;
+     
      @Column(nullable = false)
      private String endereco;
+     
      @Column(nullable = false, unique = true)
      private String telefone;
+     
      @Column(nullable = false, unique = true)
      private String email;
+     
      @Column(nullable = true)
      private String bio;
+     
      @Column(nullable = true)
      private String historia;
 
