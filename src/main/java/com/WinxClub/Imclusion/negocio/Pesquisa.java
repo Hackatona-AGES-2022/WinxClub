@@ -7,7 +7,7 @@ public class Pesquisa {
     
     List<Imigrante> imigrantes = new ArrayList<>();
 
-    public List buscaArea(String Area, List<Imigrante> todos){
+    public List<Imigrante> buscaArea(String Area, List<Imigrante> todos){
         imigrantes.clear();
 
         for (Imigrante i : todos) {
@@ -18,7 +18,7 @@ public class Pesquisa {
         return imigrantes;
     }
     
-    public List buscaEspecializacao(String especializacao, List<Imigrante> todos){
+    public List<Imigrante> buscaEspecializacao(String especializacao, List<Imigrante> todos){
         imigrantes.clear();
 
         for (Imigrante i : todos) {
